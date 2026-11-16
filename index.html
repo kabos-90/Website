@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional IT support, troubleshooting, computer setup, and technology consulting by Mohammed Mustafa.">
+  <meta name="theme-color" content="#101827">
+  <title>Mohammed Mustafa | IT Support & Technology Services</title>
+  <style>
+    :root {
+      --navy:#101827; --navy2:#17243a; --blue:#4f8cff; --cyan:#64d5e8;
+      --ink:#172033; --muted:#637087; --paper:#f5f7fb; --white:#fff;
+      --line:#e4e9f1; --radius:22px; --shadow:0 18px 55px rgba(16,24,39,.10);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(16,24,39,.95);backdrop-filter:blur(12px);color:white;border-bottom:1px solid rgba(255,255,255,.08)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:800;letter-spacing:-.5px;font-size:19px}.brand span{color:var(--cyan)}
+    .navlinks{display:flex;gap:28px;align-items:center;font-size:14px;color:#d5deec}
+    .navlinks a:hover{color:white}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:12px;background:var(--blue);color:white;font-weight:700;border:0;transition:.2s}
+    .nav-cta:hover,.btn:hover{background:#3678ef;transform:translateY(-1px)}
+    .menu{display:none;background:none;border:0;color:white;font-size:25px}
+    .hero{background:radial-gradient(circle at 80% 15%,rgba(79,140,255,.25),transparent 28%),linear-gradient(135deg,var(--navy),var(--navy2));color:white;padding:104px 0 112px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#a9c8ff;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+    .dot{width:8px;height:8px;border-radius:50%;background:#5ee0b2;box-shadow:0 0 0 5px rgba(94,224,178,.13)}
+    h1{font-size:clamp(42px,6vw,66px);line-height:1.08;letter-spacing:-2.5px;margin:22px 0}
+    h1 em{font-style:normal;color:#83b2ff}.hero p{font-size:18px;line-height:1.75;color:#c4cede;max-width:610px;margin:0 0 30px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap}.btn.secondary{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2)}
+    .btn.secondary:hover{background:rgba(255,255,255,.16)}
+    .hero-note{margin-top:25px;color:#9eabc0;font-size:13px}
+    .visual{position:relative;min-height:330px;display:grid;place-items:center}
+    .orb{width:270px;height:270px;border-radius:50%;background:linear-gradient(145deg,#294a78,#16263f);border:1px solid rgba(255,255,255,.15);box-shadow:0 25px 90px rgba(0,0,0,.28);display:grid;place-items:center}
+    .monitor{width:170px;height:120px;border:8px solid #dce8fa;border-bottom-width:14px;border-radius:13px;background:#203c61;position:relative;display:grid;place-items:center}
+    .monitor:before{content:"";position:absolute;bottom:-35px;width:58px;height:23px;background:#dce8fa;clip-path:polygon(30% 0,70% 0,85% 100%,15% 100%)}
+    .monitor:after{content:"";position:absolute;bottom:-39px;width:85px;height:6px;background:#dce8fa;border-radius:8px}
+    .monitor-icon{font-size:48px;color:#83b2ff}
+    .float-card{position:absolute;background:#fff;color:#172033;padding:13px 17px;border-radius:14px;box-shadow:var(--shadow);font-size:13px;font-weight:750}
+    .float-card.one{top:25px;right:0}.float-card.two{bottom:30px;left:0}
+    .float-card span{display:block;color:#748097;font-weight:500;font-size:11px}
+    section{padding:88px 0}.section-kicker{color:#3979e8;font-size:12px;font-weight:850;letter-spacing:1.5px;text-transform:uppercase}
+    h2{font-size:clamp(30px,4vw,42px);letter-spacing:-1.4px;line-height:1.15;margin:12px 0 14px}
+    .intro{color:var(--muted);max-width:650px;font-size:16px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+    .service{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:27px;box-shadow:0 7px 24px rgba(20,35,60,.035)}
+    .service-icon{width:48px;height:48px;border-radius:14px;background:#edf4ff;color:#3478ed;display:grid;place-items:center;font-size:23px;margin-bottom:18px}
+    .service h3{font-size:18px;margin:0 0 9px}.service p{color:var(--muted);font-size:14px;margin:0}
+    .about{background:white}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:center}
+    .about-panel{background:linear-gradient(145deg,#eaf2ff,#f5f8ff);border-radius:26px;padding:34px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between}
+    .about-panel strong{font-size:25px;line-height:1.25;letter-spacing:-.7px}
+    .about-panel small{color:#60718d}.about-copy p{color:var(--muted)}
+    .values{display:flex;gap:20px;flex-wrap:wrap;margin-top:22px}.value{font-size:13px;font-weight:750;color:#34435b}
+    .value:before{content:"✓";color:#3281ee;margin-right:8px}
+    .contact{background:var(--navy);color:white}.contact-grid{display:grid;grid-template-columns:1fr .9fr;gap:60px;align-items:center}
+    .contact .intro{color:#b8c4d6}.contact-card{background:#fff;color:var(--ink);padding:28px;border-radius:22px}
+    .contact-card p{color:var(--muted);font-size:14px;margin-top:0}.contact-line{padding:14px 0;border-top:1px solid var(--line);font-size:14px}
+    .contact-line b{display:block;font-size:11px;color:#78859a;text-transform:uppercase;letter-spacing:1px}
+    footer{background:#0b1220;color:#9eabc0;padding:24px 0;font-size:12px}
+    footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    @media(max-width:800px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}.visual{min-height:280px}.services{grid-template-columns:repeat(2,1fr)}.hero{padding:78px 0}.navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:#101827;padding:20px;flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu{display:block}.nav-cta{display:none}}
+    @media(max-width:540px){.services{grid-template-columns:1fr}section{padding:65px 0}.wrap{width:min(100% - 30px,1120px)}h1{letter-spacing:-1.5px}.float-card.one{right:-5px}.float-card.two{left:-5px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#home">MOHAMMED <span>MUSTAFA</span></a>
+        <div class="navlinks" id="navlinks">
+          <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="#contact">Get in touch</a>
+        <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><i class="dot"></i> IT Support & Technology Services</div>
+          <h1>Technology should work for <em>you.</em></h1>
+          <p>Practical, dependable IT support to help individuals and businesses solve technology problems, improve their systems, and work with confidence.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Request IT Support</a>
+            <a class="btn secondary" href="#services">Explore services</a>
+          </div>
+          <div class="hero-note">Friendly support · Clear communication · Solutions that make sense</div>
+        </div>
+        <div class="visual" aria-hidden="true">
+          <div class="orb"><div class="monitor"><div class="monitor-icon">⌘</div></div></div>
+          <div class="float-card one">✓ Problem solved<span>Reliable technical support</span></div>
+          <div class="float-card two">IT made simpler<span>People-first technology</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-kicker">What I can help with</div>
+        <h2>IT support for everyday challenges.</h2>
+        <p class="intro">From a computer that will not cooperate to setting up a more reliable technology environment, get clear guidance and hands-on support.</p>
+        <div class="services">
+          <article class="service"><div class="service-icon">💻</div><h3>Computer Support</h3><p>PC and Mac troubleshooting, setup, performance issues, updates, and software installation.</p></article>
+          <article class="service"><div class="service-icon">🛠️</div><h3>Technical Troubleshooting</h3><p>Diagnose technology problems and work through practical, easy-to-understand solutions.</p></article>
+          <article class="service"><div class="service-icon">☁️</div><h3>Microsoft 365 & Email</h3><p>Help with Outlook, Microsoft 365, Teams, email configuration, and productivity tools.</p></article>
+          <article class="service"><div class="service-icon">🌐</div><h3>Network & Connectivity</h3><p>Wi-Fi, printers, device connectivity, VPN access, and basic network troubleshooting.</p></article>
+          <article class="service"><div class="service-icon">🔒</div><h3>Technology & Security</h3><p>Guidance on updates, secure configurations, backups, and everyday technology best practices.</p></article>
+          <article class="service"><div class="service-icon">📋</div><h3>IT Projects & Consulting</h3><p>Technology planning, equipment recommendations, implementation support, and IT process improvement.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="about-panel">
+          <strong>Making technology easier, one solution at a time.</strong>
+          <small>MOHAMMED MUSTAFA · IT SUPPORT</small>
+        </div>
+        <div class="about-copy">
+          <div class="section-kicker">About me</div>
+          <h2>Technical knowledge. Practical solutions.</h2>
+          <p>I’m Mohammed Mustafa, an IT professional with a computer science background and experience supporting users, devices, software, and technology projects.</p>
+          <p>My approach is simple: listen carefully, understand the problem, explain the options clearly, and focus on a solution that fits the situation.</p>
+          <div class="values"><span class="value">Responsive support</span><span class="value">Clear explanations</span><span class="value">Practical recommendations</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="section-kicker" style="color:#83b2ff">Let's connect</div>
+          <h2>Need help with your technology?</h2>
+          <p class="intro">Tell me what you are working on or what is not working. Get in touch to discuss your IT support needs.</p>
+          <a class="btn" href="mailto:YOUR_EMAIL@example.com?subject=IT%20Support%20Request">Email me</a>
+        </div>
+        <div class="contact-card">
+          <h3>Contact information</h3>
+          <p>Replace the sample details below with the contact information you want to publish.</p>
+          <div class="contact-line"><b>Email</b>YOUR_EMAIL@example.com</div>
+          <div class="contact-line"><b>Phone</b>YOUR_PHONE_NUMBER</div>
+          <div class="contact-line"><b>Availability</b>By appointment · Remote support</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>© <span id="year"></span> Mohammed Mustafa. All rights reserved.</span><span>IT Support & Technology Services</span></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('menu').addEventListener('click', () => document.getElementById('navlinks').classList.toggle('open'));
+    document.querySelectorAll('#navlinks a').forEach(link => link.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open')));
+  </script>
+</body>
+</html>
