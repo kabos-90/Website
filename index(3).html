@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechVisor provides IT support, technology consulting, website design and development, and AI solutions. Founded by Mohammed Mustafa.">
+  <meta name="theme-color" content="#071426">
+  <title>TechVisor | Technology, Innovation & Solutions</title>
+  <style>
+    :root{
+      --bg:#071426;--bg2:#0b1d35;--panel:#102743;--blue:#4d8dff;--cyan:#67d9e8;
+      --text:#f4f8ff;--muted:#a9bad0;--ink:#102139;--paper:#f4f7fb;
+      --line:rgba(255,255,255,.12);--lightline:#e3eaf3;--white:#fff;
+      --radius:22px;--shadow:0 24px 70px rgba(2,12,27,.25)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .container{width:min(1160px,calc(100% - 44px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(7,20,38,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;color:var(--text)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.4px}
+    .brand-mark{width:39px;height:39px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#06162a;font-size:21px;font-weight:900;box-shadow:0 8px 25px rgba(77,141,255,.28)}
+    .brand-name{font-size:20px;line-height:1.2;font-weight:850;letter-spacing:-.6px}.brand-name small{display:block;color:#9eb4d0;font-size:10px;font-weight:700;letter-spacing:1.5px;margin-top:4px}
+    .navlinks{display:flex;align-items:center;gap:30px;color:#c4d1e2;font-size:13px;font-weight:650}
+    .navlinks a:hover{color:white}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:12px;padding:13px 19px;background:linear-gradient(110deg,var(--blue),#3677e8);color:white;font-size:13px;font-weight:800;transition:transform .2s,box-shadow .2s,background .2s;box-shadow:0 10px 28px rgba(56,119,232,.22)}
+    .nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 15px 34px rgba(56,119,232,.3)}
+    .btn-outline{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.2);box-shadow:none;color:#f2f6ff}
+    .btn-outline:hover{background:rgba(255,255,255,.12)}
+    .menu{display:none;border:0;background:none;color:white;font-size:25px;cursor:pointer}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 12%,rgba(53,125,242,.22),transparent 34%),radial-gradient(ellipse at 10% 95%,rgba(49,193,210,.12),transparent 30%),linear-gradient(135deg,#071426 0%,#0b1d35 55%,#102a49 100%);color:var(--text);padding:104px 0 100px}
+    .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(90deg,transparent,black)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:#a9c9ff;font-size:11px;font-weight:850;letter-spacing:2px;text-transform:uppercase}
+    .pulse{width:8px;height:8px;border-radius:50%;background:#62e4bd;box-shadow:0 0 0 6px rgba(98,228,189,.12)}
+    h1{max-width:720px;margin:22px 0 20px;font-size:clamp(43px,6vw,70px);line-height:1.04;letter-spacing:-3.2px}
+    h1 span{background:linear-gradient(95deg,#8ab6ff,#69dce9);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:630px;color:#bdcadd;font-size:17px;line-height:1.8;margin:0 0 30px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap}
+    .hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:35px;color:#9fb1c8;font-size:11px;font-weight:700;letter-spacing:.35px}
+    .hero-meta span:before{content:"✓";color:var(--cyan);margin-right:8px}
+    .tech-visual{min-height:390px;position:relative;display:grid;place-items:center}
+    .visual-ring{position:absolute;width:330px;height:330px;border:1px solid rgba(139,183,255,.2);border-radius:50%;box-shadow:0 0 0 35px rgba(102,156,231,.035),0 0 0 70px rgba(102,156,231,.025)}
+    .visual-core{position:relative;width:250px;height:250px;border-radius:35px;background:linear-gradient(145deg,rgba(36,75,119,.95),rgba(12,33,59,.98));border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 90px rgba(0,0,0,.35);display:grid;place-items:center;transform:rotate(-5deg)}
+    .visual-core:before{content:"";position:absolute;inset:13px;border:1px solid rgba(255,255,255,.11);border-radius:25px}
+    .monogram{width:112px;height:112px;border:1px solid rgba(135,190,255,.55);border-radius:30px;background:linear-gradient(145deg,rgba(103,217,232,.18),rgba(77,141,255,.08));box-shadow:inset 0 0 35px rgba(103,217,232,.12),0 0 45px rgba(77,141,255,.12);transform:rotate(-5deg)}
+    .visual-label{position:absolute;background:rgba(255,255,255,.96);color:#14243b;border-radius:14px;padding:12px 15px;box-shadow:var(--shadow);font-size:11px;font-weight:850}
+    .visual-label small{display:block;color:#71829a;font-size:10px;font-weight:600;margin-top:2px}
+    .label-top{top:42px;right:-2px}.label-bottom{bottom:42px;left:-5px}
+    .float-icon{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:8px;background:#e8f1ff;color:#3679ed;margin-right:7px}
+    section{padding:88px 0}
+    .section-head{max-width:720px;margin-bottom:38px}
+    .kicker{color:#3679e8;font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}
+    h2{font-size:clamp(31px,4vw,45px);line-height:1.12;letter-spacing:-1.8px;margin:12px 0}
+    .section-intro{color:#66778e;font-size:15px;max-width:680px;margin:0}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .service{background:white;border:1px solid var(--lightline);border-radius:19px;padding:25px;min-height:220px;box-shadow:0 9px 28px rgba(22,48,80,.035);transition:transform .2s,box-shadow .2s}
+    .service:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(22,48,80,.09)}
+    .service-icon{width:47px;height:47px;border-radius:14px;display:grid;place-items:center;background:#edf4ff;color:#3478ed;font-size:21px;margin-bottom:19px}
+    .service h3{font-size:16px;letter-spacing:-.3px;margin:0 0 8px}
+    .service p{font-size:13px;color:#6d7c90;line-height:1.7;margin:0}
+    .band{background:#fff;border-top:1px solid var(--lightline);border-bottom:1px solid var(--lightline)}
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:65px;align-items:center}
+    .about-card{position:relative;overflow:hidden;min-height:330px;border-radius:25px;padding:32px;background:linear-gradient(145deg,#102a49,#071426);color:white;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+    .about-card:after{content:"N";position:absolute;right:-12px;bottom:-80px;font-size:300px;line-height:1;font-weight:950;color:rgba(255,255,255,.045)}
+    .about-card .mini{position:relative;z-index:1;color:#91baff;font-size:11px;font-weight:850;letter-spacing:1.7px;text-transform:uppercase}
+    .about-card strong{position:relative;z-index:1;max-width:330px;font-size:28px;line-height:1.2;letter-spacing:-.8px}
+    .about-card small{position:relative;z-index:1;color:#9fb1c8;font-size:11px}
+    .about-copy p{color:#66778e;font-size:14px;line-height:1.9}
+    .check-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:23px}
+    .check{font-size:12px;font-weight:800;color:#31445e}.check:before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;margin-right:8px;border-radius:50%;background:#e8f3ff;color:#3679ed}
+    .process{background:#f4f7fb}
+    .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .step{padding:23px;border:1px solid #e1e8f1;background:#fff;border-radius:18px}
+    .step-no{font-size:11px;font-weight:900;color:#397be9;letter-spacing:1px}
+    .step h3{font-size:16px;margin:12px 0 7px}
+    .step p{font-size:13px;color:#6d7c90;margin:0}
+    .contact{background:radial-gradient(ellipse at 90% 0%,rgba(68,132,237,.18),transparent 35%),#08182c;color:white}
+    .contact-grid{display:grid;grid-template-columns:1fr .95fr;gap:65px;align-items:center}
+    .contact .section-intro{color:#adbed3}
+    .contact-details{display:grid;gap:13px;margin-top:27px}
+    .contact-link{display:flex;align-items:center;gap:13px;color:#eaf2ff;font-size:14px;font-weight:700}
+    .contact-link .symbol{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.08);color:#80b5ff}
+    .contact-card{background:#fff;color:#14243b;border-radius:22px;padding:27px;box-shadow:0 22px 60px rgba(0,0,0,.18)}
+    .contact-card h3{font-size:19px;margin:0 0 5px}
+    .contact-card>p{font-size:12px;color:#74839a;margin:0 0 19px}
+    .field{display:grid;gap:6px;margin-bottom:13px}
+    .field label{font-size:11px;font-weight:850;color:#455770}
+    .field input,.field textarea{width:100%;border:1px solid #dce4ef;border-radius:10px;padding:11px 12px;color:#14243b;background:#fbfcfe;outline:none;font-size:13px}
+    .field input:focus,.field textarea:focus{border-color:#5792f2;box-shadow:0 0 0 3px rgba(87,146,242,.12)}
+    .field textarea{min-height:105px;resize:vertical}
+    .contact-card .btn{width:100%;cursor:pointer}
+    .form-note{font-size:10px;color:#8491a3;margin:11px 0 0}
+    .form-status{margin-top:14px;padding:15px 16px;border-radius:12px;background:#e9f8ef;border:1px solid #b9e6c9;color:#176536;font-size:13px;font-weight:750;line-height:1.5}
+    .form-status.error{background:#fff1f0;border-color:#ffd0cc;color:#a1261c}
+    .form-status[hidden]{display:none}
+    footer{background:#05101e;color:#91a3ba;padding:23px 0;font-size:11px}
+    .footer-row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+    .footer-brand{color:#eaf2ff;font-weight:800}
+    @media(max-width:850px){
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
+      .tech-visual{min-height:330px}.services-grid{grid-template-columns:repeat(2,1fr)}
+      .about-card{min-height:260px}.navlinks{gap:17px}
+    }
+    @media(max-width:620px){
+      .container{width:min(100% - 30px,1160px)}.nav{height:69px}
+      .navlinks{display:none;position:absolute;top:69px;left:0;right:0;padding:20px 24px;background:#071426;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+      .navlinks.open{display:flex}.menu{display:block}.nav-cta{display:none}
+      .hero{padding:75px 0 70px}h1{letter-spacing:-2px}.hero-copy{font-size:15px}
+      .tech-visual{min-height:285px}.visual-ring{width:250px;height:250px}.visual-core{width:195px;height:195px}.monogram{font-size:74px}
+      .label-top{right:0;top:16px}.label-bottom{left:0;bottom:18px}
+      section{padding:66px 0}.services-grid,.process-grid{grid-template-columns:1fr}.check-list{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Mohammed Mustafa IT Solutions home">
+          <span class="brand-name techvisor-wordmark">TechVisor<small>TECHNOLOGY · INNOVATION · SOLUTIONS</small></span>
+        </a>
+        <div class="navlinks" id="navlinks">
+          <a href="#services">Services</a><a href="#about">About</a><a href="#approach">How I Work</a><a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="#contact">Let's talk <span>↗</span></a>
+        <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> TECHNOLOGY · INNOVATION · SOLUTIONS CONSULTING</div>
+          <h1>Technology made smarter.<br><span>Solutions that move you forward.</span></h1>
+          <p class="hero-copy">Practical IT support and technology consulting to help people and organizations solve problems, make smarter technology decisions, and work with confidence.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Discuss a project <span>↗</span></a>
+            <a class="btn btn-outline" href="#services">Explore services</a>
+          </div>
+          <div class="hero-meta"><span>Clear communication</span><span>Practical recommendations</span><span>People-first support</span></div>
+        </div>
+        <div class="tech-visual" aria-hidden="true">
+          <div class="visual-ring"></div>
+          <div class="visual-core"><div class="monogram" aria-hidden="true"></div></div>
+          <div class="visual-label label-top"><span class="float-icon">⌘</span>Technology made smarter<small>Support · Strategy · Solutions</small></div>
+          <div class="visual-label label-bottom"><span class="float-icon">✓</span>Focused on what matters<small>Reliable, thoughtful IT guidance</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">What I can help with</div>
+          <h2>Technology support for real-world needs.</h2>
+          <p class="section-intro">From everyday technical issues to broader technology planning, explore practical services designed around your goals.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service"><div class="service-icon">⌘</div><h3>IT Support &amp; Troubleshooting</h3><p>Help diagnosing computer, device, software, printer, and connectivity issues with clear next steps.</p></article>
+          <article class="service"><div class="service-icon">▣</div><h3>Computer &amp; Device Setup</h3><p>PC and Mac setup, configuration, software installation, updates, and technology onboarding.</p></article>
+          <article class="service"><div class="service-icon">☁</div><h3>Microsoft 365 &amp; Productivity</h3><p>Guidance with Outlook, Teams, Microsoft 365, collaboration tools, and everyday workflows.</p></article>
+          <article class="service"><div class="service-icon">⌁</div><h3>Network &amp; Connectivity</h3><p>Practical troubleshooting for Wi-Fi, VPN access, printers, and connected devices.</p></article>
+          <article class="service"><div class="service-icon">◇</div><h3>IT Consulting &amp; Planning</h3><p>Technology recommendations, equipment planning, implementation support, and process improvement.</p></article>
+          <article class="service"><div class="service-icon">✳</div><h3>AI &amp; Automation Solutions</h3><p>Explore useful AI tools and workflow automation to simplify repetitive tasks and improve productivity.</p></article>
+          <article class="service"><div class="service-icon">▤</div><h3>Website Design &amp; Development</h3><p>Modern, responsive websites and web applications for businesses and individuals, including landing pages, contact forms, and hosting setup.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="about">
+      <div class="container about-grid">
+        <div class="about-card">
+          <span class="mini">A practical approach to technology</span>
+          <strong>Good technology should make work easier — not more complicated.</strong>
+          <small>TECHVISOR · TECHNOLOGY · INNOVATION · SOLUTIONS CONSULTING</small>
+        </div>
+        <div class="about-copy">
+          <div class="kicker">About TechVisor</div>
+          <h2>Technical understanding. Business-minded solutions.</h2>
+          <p>TechVisor was founded by Mohammed Mustafa, an IT professional with a Bachelor’s degree in Computer Science and a Master’s degree in Business Analytics & Applied AI. He brings experience supporting users, technology environments, devices, software, and IT projects.</p>
+          <p>I focus on understanding the problem first, explaining options in plain language, and recommending solutions that fit the people and work involved.</p>
+          <div class="check-list">
+            <div class="check">User-focused support</div><div class="check">Clear communication</div>
+            <div class="check">Practical IT guidance</div><div class="check">Technology planning</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="approach">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">How I work</div>
+          <h2>A straightforward path to a better solution.</h2>
+          <p class="section-intro">A clear, collaborative approach keeps the focus on your needs and the outcome you're looking for.</p>
+        </div>
+        <div class="process-grid">
+          <article class="step"><div class="step-no">01 / UNDERSTAND</div><h3>Start with the need</h3><p>Discuss the challenge, your goals, and the technology involved.</p></article>
+          <article class="step"><div class="step-no">02 / RECOMMEND</div><h3>Identify practical options</h3><p>Review possible solutions and explain the trade-offs in clear language.</p></article>
+          <article class="step"><div class="step-no">03 / MOVE FORWARD</div><h3>Make progress</h3><p>Agree on next steps and work toward a solution that fits your situation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="kicker" style="color:#83b5ff">Get in touch</div>
+          <h2>Let's make technology work better.</h2>
+          <p class="section-intro">Have a technical issue, a project idea, or a question about your technology setup? Send a message or contact me directly.</p>
+          <div class="contact-details">
+            <a class="contact-link" href="mailto:mmustaf2@ur.rochester.edu"><span class="symbol">✉</span><span>Email me</span></a>
+            <a class="contact-link" href="tel:+15853589591"><span class="symbol">☎</span><span>+1 (585) 358-9591</span></a>
+          </div>
+        </div>
+        <form class="contact-card" action="https://formsubmit.co/mmustaf2@ur.rochester.edu" method="POST">
+          <h3>Send a message</h3>
+          <p>Send your message directly to TechVisor. You do not need to open your email application.</p>
+          <input type="hidden" name="_subject" value="New message from the TechVisor website"><input type="hidden" name="_next" value="https://it.kabos.org/?sent=1#contact"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"><div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="Enter your name" required></div>
+          <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="phone">Your phone number (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Enter your phone number"></div>
+          <div class="field"><label for="message">How can I help?</label><textarea id="message" name="message" placeholder="Tell me a little about what you need..." required></textarea></div>
+          <button class="btn" type="submit">Send message <span>↗</span></button>
+          <p class="form-note">After submitting, you will return to this page. FormSubmit must accept the message before it can be delivered.</p>
+          <div id="formStatus" class="form-status" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span class="footer-brand">TECHVISOR · IT SOLUTIONS</span>
+      <span>© <span id="year"></span> Mohammed Mustafa. All rights reserved.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menu = document.getElementById('menu');
+    const links = document.getElementById('navlinks');
+    menu.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+      menu.textContent = open ? '×' : '☰';
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+      menu.textContent = '☰';
+    }));
+    // FormSubmit redirects back to this page after processing the message.
+    const params = new URLSearchParams(window.location.search);
+    const formStatus = document.getElementById('formStatus');
+    if (params.get('sent') === '1' && formStatus) {
+      formStatus.textContent = 'Your message has been submitted. Thank you for contacting TechVisor. I’ll get back to you as soon as possible.';
+      formStatus.hidden = false;
+      formStatus.classList.remove('error');
+      window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+    }
+
+  </script>
+</body>
+</html>
