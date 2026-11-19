@@ -311,7 +311,7 @@
           <div class="field"><label for="name" id="nameLabel">Your name</label><input id="name" name="name" autocomplete="name" placeholder="Enter your name" required></div>
           <div class="field"><label for="email" id="emailLabel">Your email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
           <div class="field"><label for="phone" id="phoneLabel">Your phone number (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Enter your phone number"></div>
-          <div class="field"><label for="message" id="messageLabel">How can I help?</label><textarea id="message" name="message" placeholder="Tell me a little about what you need..." required></textarea></div>
+          <div class="field"><label for="message" id="messageLabel">How can We help?</label><textarea id="message" name="message" placeholder="Tell me a little about what you need..." required></textarea></div>
           <button class="btn" type="submit" id="sendButton">Send message <span>↗</span></button>
           <p class="form-note" id="formNote">Your message will be sent to NexITech. Please do not include passwords or sensitive information.</p>
           <div id="formStatus" class="form-status" role="status" aria-live="polite" hidden></div>
@@ -355,7 +355,7 @@
       langToggle.textContent=arabic?'English':'العربية'; langToggle.setAttribute('aria-label',arabic?'Switch to English':'Switch to Arabic');
       document.querySelectorAll('.service-more').forEach(el=>{el.textContent=arabic?'اعرف المزيد ←':'Learn more ↗';});
       // Translate form field labels and placeholders.
-      const fields={name:['Your name','اسمك','Enter your name','أدخل اسمك'],email:['Your email','بريدك الإلكتروني','you@example.com','you@example.com'],phone:['Your phone number (optional)','رقم هاتفك (اختياري)','Enter your phone number','أدخل رقم هاتفك'],message:['How can I help?','كيف يمكنني مساعدتك؟','Tell me a little about what you need...','أخبرني قليلًا بما تحتاج إليه...']};
+      const fields={name:['Your name','اسمك','Enter your name','أدخل اسمك'],email:['Your email','بريدك الإلكتروني','you@example.com','you@example.com'],phone:['Your phone number (optional)','رقم هاتفك (اختياري)','Enter your phone number','أدخل رقم هاتفك'],message:['How can We help?','كيف يمكننا مساعدتك؟','Tell me a little about what you need...','أخبرني قليلًا بما تحتاج إليه...']};
       Object.entries(fields).forEach(([field,vals])=>{const label=document.querySelector('label[for="'+field+'"]');const input=document.getElementById(field);if(label)label.textContent=arabic?vals[1]:vals[0];if(input)input.placeholder=arabic?vals[3]:vals[2];});
     }
     langToggle.addEventListener('click',()=>setLanguage(currentLang==='en'?'ar':'en'));
