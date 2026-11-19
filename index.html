@@ -136,7 +136,23 @@
       .label-top{right:0;top:16px}.label-bottom{left:0;bottom:18px}
       section{padding:66px 0}.services-grid,.process-grid{grid-template-columns:1fr}.check-list{grid-template-columns:1fr}
     }
-  </style>
+  
+    .service-click{width:100%;text-align:left;cursor:pointer;color:inherit;font-family:inherit;background:#fff;border:1px solid var(--lightline);position:relative}
+    .service-click:focus-visible{outline:3px solid #4d8dff;outline-offset:3px}
+    .service-more{display:inline-block;margin-top:14px;font-size:12px;font-weight:800;color:#3478ed}
+    .service-click:hover .service-more{text-decoration:underline}
+    .service-modal-backdrop{position:fixed;inset:0;z-index:1000;background:rgba(3,12,25,.68);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:20px}
+    .service-modal-backdrop.open{display:flex}
+    .service-modal{width:min(560px,100%);background:white;color:#102139;border-radius:22px;padding:30px;box-shadow:0 30px 90px rgba(0,0,0,.3);position:relative}
+    .service-modal h2{margin:12px 0;font-size:25px;line-height:1.25}
+    .service-modal p{color:#63748b;line-height:1.8}
+    .service-modal-close{position:absolute;top:13px;right:14px;border:0;background:#edf3fb;border-radius:10px;width:38px;height:38px;font-size:22px;cursor:pointer;color:#20354e}
+    body[dir="rtl"] .service-click{text-align:right}
+    body[dir="rtl"] .service-modal-close{right:auto;left:14px}
+
+
+    body[dir="rtl"] #phone{direction:rtl;text-align:right}
+</style>
 
   <link rel="canonical" href="https://nexitech.us/">
   <link rel="icon" type="image/png" href="https://nexitech.us/favicon.png">
@@ -214,14 +230,14 @@
           <p class="section-intro" id="servicesIntro">From everyday technical issues to broader technology planning, explore practical services designed around your goals.</p>
         </div>
         <div class="services-grid">
-          <article class="service"><div class="service-icon">⌘</div><h3 id="service1Title">IT Support &amp; Troubleshooting</h3><p id="service1Desc">Help diagnosing computer, device, software, printer, and connectivity issues with clear next steps.</p></article>
-          <article class="service"><div class="service-icon">▣</div><h3 id="service2Title">Computer &amp; Device Setup</h3><p id="service2Desc">PC and Mac setup, configuration, software installation, updates, and technology onboarding.</p></article>
-          <article class="service"><div class="service-icon">☁</div><h3 id="service3Title">Microsoft 365 &amp; Productivity</h3><p id="service3Desc">Guidance with Outlook, Teams, Microsoft 365, collaboration tools, and everyday workflows.</p></article>
-          <article class="service"><div class="service-icon">⌁</div><h3 id="service4Title">Network &amp; Connectivity</h3><p id="service4Desc">Practical troubleshooting for Wi-Fi, VPN access, printers, and connected devices.</p></article>
-          <article class="service"><div class="service-icon">◇</div><h3 id="service5Title">IT Consulting &amp; Planning</h3><p id="service5Desc">Technology recommendations, equipment planning, implementation support, and process improvement.</p></article>
-          <article class="service"><div class="service-icon">✳</div><h3 id="service6Title">AI &amp; Automation Solutions</h3><p id="service6Desc">Explore useful AI tools and workflow automation to simplify repetitive tasks and improve productivity.</p></article>
-          <article class="service"><div class="service-icon">▤</div><h3 id="service7Title">Website Design &amp; Development</h3><p id="service7Desc">Modern, responsive websites and web applications for businesses and individuals, including landing pages, contact forms, and hosting setup.</p></article>
-        </div>
+          <button type="button" class="service service-click" data-service="1" aria-haspopup="dialog"><div class="service-icon">⌘</div><h3 id="service1Title">IT Support &amp; Troubleshooting</h3><p id="service1Desc">Help diagnosing computer, device, software, printer, and connectivity issues with clear next steps.</p><span class="service-more" id="serviceMore1">Learn more ↗</span></button>
+          <button type="button" class="service service-click" data-service="2" aria-haspopup="dialog"><div class="service-icon">▣</div><h3 id="service2Title">Computer &amp; Device Setup</h3><p id="service2Desc">PC and Mac setup, configuration, software installation, updates, and technology onboarding.</p><span class="service-more" id="serviceMore2">Learn more ↗</span></button>
+          <button type="button" class="service service-click" data-service="3" aria-haspopup="dialog"><div class="service-icon">☁</div><h3 id="service3Title">Microsoft 365 &amp; Productivity</h3><p id="service3Desc">Guidance with Outlook, Teams, Microsoft 365, collaboration tools, and everyday workflows.</p><span class="service-more" id="serviceMore3">Learn more ↗</span></button>
+          <button type="button" class="service service-click" data-service="4" aria-haspopup="dialog"><div class="service-icon">⌁</div><h3 id="service4Title">Network &amp; Connectivity</h3><p id="service4Desc">Practical troubleshooting for Wi-Fi, VPN access, printers, and connected devices.</p><span class="service-more" id="serviceMore4">Learn more ↗</span></button>
+          <button type="button" class="service service-click" data-service="5" aria-haspopup="dialog"><div class="service-icon">◇</div><h3 id="service5Title">IT Consulting &amp; Planning</h3><p id="service5Desc">Technology recommendations, equipment planning, implementation support, and process improvement.</p><span class="service-more" id="serviceMore5">Learn more ↗</span></button>
+          <button type="button" class="service service-click" data-service="6" aria-haspopup="dialog"><div class="service-icon">✳</div><h3 id="service6Title">AI &amp; Automation Solutions</h3><p id="service6Desc">Explore useful AI tools and workflow automation to simplify repetitive tasks and improve productivity.</p><span class="service-more" id="serviceMore6">Learn more ↗</span></button>
+          <button type="button" class="service service-click" data-service="7" aria-haspopup="dialog"><div class="service-icon">▤</div><h3 id="service7Title">Website Design &amp; Development</h3><p id="service7Desc">Modern, responsive websites and web applications for businesses and individuals, including landing pages, contact forms, and hosting setup.</p><span class="service-more" id="serviceMore7">Learn more ↗</span></button>
+        <button type="button" class="service service-click" data-service="8" aria-haspopup="dialog"><div class="service-icon">🤖</div><h3 id="service8Title">AI Chatbots &amp; Intelligent Agents</h3><p id="service8Desc">Build custom AI chatbots and agents for websites, customer questions, knowledge bases, and business workflows.</p><span class="service-more" id="serviceMore8">Learn more ↗</span></button></div>
       </div>
     </section>
 
@@ -316,7 +332,7 @@
         service1Title:"الدعم التقني وحل المشكلات", service1Desc:"تشخيص مشكلات الكمبيوتر والأجهزة والبرامج والطابعات والاتصال، مع خطوات واضحة للحل.", service2Title:"إعداد الكمبيوتر والأجهزة", service2Desc:"إعداد أجهزة PC وMac، والتهيئة، وتثبيت البرامج، والتحديثات، وتهيئة المستخدمين للتكنولوجيا.", service3Title:"Microsoft 365 والإنتاجية", service3Desc:"مساعدة في Outlook وTeams وMicrosoft 365 وأدوات التعاون وسير العمل اليومي.", service4Title:"الشبكات والاتصال", service4Desc:"حل مشكلات Wi-Fi وVPN والطابعات والأجهزة المتصلة بطريقة عملية.", service5Title:"استشارات وتخطيط تقنية المعلومات", service5Desc:"توصيات تقنية، وتخطيط المعدات، ودعم التنفيذ، وتحسين الإجراءات.", service6Title:"حلول الذكاء الاصطناعي والأتمتة", service6Desc:"استخدام أدوات الذكاء الاصطناعي والأتمتة لتبسيط المهام المتكررة وتحسين الإنتاجية.", service7Title:"تصميم وتطوير المواقع", service7Desc:"مواقع وتطبيقات ويب حديثة ومتجاوبة للأفراد والشركات، بما في ذلك صفحات التعريف ونماذج التواصل وإعداد الاستضافة.",
         aboutMini:"نهج عملي للتكنولوجيا", aboutStatement:"يجب أن تجعل التكنولوجيا العمل أسهل — لا أكثر تعقيدًا.", aboutBrandLine:"NexITech · التكنولوجيا · الابتكار · استشارات الحلول", aboutKicker:"عن NexITech", aboutTitle:"فهم تقني. حلول بعقلية الأعمال.", aboutParagraph1:"تأسست NexITech على يد محمد مصطفى، متخصص في تقنية المعلومات حاصل على بكالوريوس علوم الحاسوب، ويتابع دراسة الماجستير في تحليلات الأعمال والذكاء الاصطناعي التطبيقي. لديه خبرة في دعم المستخدمين والبيئات التقنية والأجهزة والبرامج ومشاريع تقنية المعلومات.", aboutParagraph2:"أركز أولاً على فهم المشكلة، وشرح الخيارات بلغة واضحة، وتقديم حلول تناسب الأشخاص وطبيعة العمل.", check1:"دعم يركز على المستخدم", check2:"تواصل واضح", check3:"إرشادات تقنية عملية", check4:"التخطيط التقني",
         processKicker:"كيف أعمل", processTitle:"خطوات واضحة نحو حل أفضل.", processIntro:"نهج واضح وتعاوني يركز على احتياجاتك والنتيجة التي تسعى إليها.", step1Label:"01 / فهم", step1Title:"ابدأ بفهم الحاجة", step1Desc:"ناقش التحدي وأهدافك والتكنولوجيا المستخدمة.", step2Label:"02 / توصية", step2Title:"حدد الخيارات العملية", step2Desc:"راجع الحلول الممكنة واشرح مزاياها وعيوبها بوضوح.", step3Label:"03 / تقدم", step3Title:"ابدأ التنفيذ", step3Desc:"اتفق على الخطوات التالية واعمل نحو حل يناسب وضعك.",
-        contactKicker:"تواصل معي", contactTitle:"لنجعل التكنولوجيا تعمل بشكل أفضل.", contactIntro:"هل لديك مشكلة تقنية أو فكرة مشروع أو سؤال حول إعداداتك التقنية؟ أرسل رسالة أو تواصل معي مباشرة.", emailUs:"راسلني", callUs:"اتصل بي", delphiButton:"تحدث معي عبر الذكاء الاصطناعي", aiButton:"تحدث مع مساعد الذكاء الاصطناعي", businessHours:"<strong>ساعات العمل</strong> · الاثنين–الجمعة، 9 صباحًا–6 مساءً بتوقيت شرق الولايات المتحدة · مغلق في عطلة نهاية الأسبوع", locationInfo:"<strong>الموقع</strong> · الولايات المتحدة · خدمات عن بُعد في جميع أنحاء البلاد", formTitle:"أرسل رسالة", formIntro:"أرسل رسالتك مباشرة إلى NexITech. لا تحتاج إلى فتح تطبيق البريد الإلكتروني.", nameLabel:"اسمك", emailLabel:"بريدك الإلكتروني", phoneLabel:"رقم هاتفك (اختياري)", messageLabel:"كيف يمكنني مساعدتك؟", namePlaceholder:"أدخل اسمك", emailPlaceholder:"you@example.com", phonePlaceholder:"أدخل رقم هاتفك", messagePlaceholder:"أخبرني قليلًا بما تحتاج إليه...", sendButton:"إرسال الرسالة", formNote:"ستُرسل رسالتك إلى NexITech. يرجى عدم تضمين كلمات المرور أو المعلومات الحساسة.", footerBrand:"NexITech · حلول تقنية المعلومات", copyright:"© YEAR Mohammed Mustafa. جميع الحقوق محفوظة.", backTop:"العودة إلى الأعلى ↑"
+        contactKicker:"تواصل معي", contactTitle:"لنجعل التكنولوجيا تعمل بشكل أفضل.", contactIntro:"هل لديك مشكلة تقنية أو فكرة مشروع أو سؤال حول إعداداتك التقنية؟ أرسل رسالة أو تواصل معي مباشرة.", emailUs:"راسلني", callUs:"اتصل بي", delphiButton:"تحدث معي عبر الذكاء الاصطناعي", aiButton:"تحدث مع مساعد الذكاء الاصطناعي", businessHours:"<strong>ساعات العمل</strong> · الاثنين–الجمعة، 9 صباحًا–6 مساءً بتوقيت شرق الولايات المتحدة · مغلق في عطلة نهاية الأسبوع", locationInfo:"<strong>الموقع</strong> · الولايات المتحدة · خدمات عن بُعد في جميع أنحاء البلاد", formTitle:"أرسل رسالة", formIntro:"أرسل رسالتك مباشرة إلى NexITech. لا تحتاج إلى فتح تطبيق البريد الإلكتروني.", nameLabel:"اسمك", emailLabel:"بريدك الإلكتروني", phoneLabel:"رقم هاتفك (اختياري)", messageLabel:"كيف يمكنني مساعدتك؟", namePlaceholder:"أدخل اسمك", emailPlaceholder:"you@example.com", phonePlaceholder:"أدخل رقم هاتفك", messagePlaceholder:"أخبرني قليلًا بما تحتاج إليه...", sendButton:"إرسال الرسالة", formNote:"ستُرسل رسالتك إلى NexITech. يرجى عدم تضمين كلمات المرور أو المعلومات الحساسة.", footerBrand:"NexITech · حلول تقنية المعلومات", copyright:"© <span dir=\"ltr\" style=\"unicode-bidi:isolate\">2026</span> Mohammed Mustafa. جميع الحقوق محفوظة.", backTop:"العودة إلى الأعلى ↑"
       }
     };
     const englishOriginals = {};
@@ -327,6 +343,7 @@
     function setLanguage(lang){
       currentLang=lang; const arabic=lang==='ar'; document.documentElement.lang=arabic?'ar':'en'; document.body.dir=arabic?'rtl':'ltr';
       ids.forEach(id=>{const el=document.getElementById(id); if(el && translations.ar[id]!==undefined) el.innerHTML=arabic?translations.ar[id]:englishOriginals[id];});
+      const copyrightEl=document.getElementById('copyright'); if(copyrightEl){ const year=new Date().getFullYear(); if(arabic){copyrightEl.innerHTML='© <span dir="ltr" style="unicode-bidi:isolate">'+year+'</span> Mohammed Mustafa. جميع الحقوق محفوظة.';} else {copyrightEl.innerHTML='© <span dir="ltr" style="unicode-bidi:isolate">'+year+'</span> Mohammed Mustafa. All rights reserved.';} }
       const metaTexts={ar:{title:'NexITech | حلول الذكاء الاصطناعي وتقنية المعلومات والاستشارات التقنية',desc:'حلول الذكاء الاصطناعي، والأتمتة، والدعم التقني، والاستشارات، وتطوير المواقع.'},en:{title:'NexITech | IT, AI Solutions & Technology Consulting',desc:'IT support, AI solutions, intelligent agents, workflow automation, technology consulting, and website development.'}};
       document.title=metaTexts[lang].title; const desc=document.querySelector('meta[name="description"]'); if(desc) desc.content=metaTexts[lang].desc;
       langToggle.textContent=arabic?'English':'العربية'; langToggle.setAttribute('aria-label',arabic?'Switch to English':'Switch to Arabic');
@@ -405,5 +422,47 @@
     }
 
   </script>
+
+<div class="service-modal-backdrop" id="serviceModal" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+  <div class="service-modal">
+    <button class="service-modal-close" id="serviceModalClose" type="button" aria-label="Close">×</button>
+    <div class="service-icon" id="serviceModalIcon"></div>
+    <h2 id="serviceModalTitle"></h2>
+    <p id="serviceModalDescription"></p>
+    <a class="btn" id="serviceModalContact" href="#contact">Discuss this service</a>
+  </div>
+</div>
+
+<script>
+(function(){
+ const icons=['⌘','▣','☁','⌁','◇','✳','▤','🤖'];
+ const details={en:[
+ ["IT Support & Troubleshooting","Diagnose and resolve computer, device, software, printer, and connectivity problems. Get clear explanations, practical troubleshooting, and recommendations for next steps."],
+ ["Computer & Device Setup","Setup and configure computers and devices, install software, apply updates, and help you get your technology ready to use."],
+ ["Microsoft 365 & Productivity","Improve your use of Outlook, Teams, Microsoft 365, collaboration tools, and everyday workflows. Get help configuring tools and simplifying work."],
+ ["Network & Connectivity","Troubleshoot Wi-Fi, VPN, network access, printers, and connected devices to help restore reliable connectivity."],
+ ["IT Consulting & Planning","Get technology recommendations, equipment planning, implementation guidance, and process-improvement ideas tailored to your needs."],
+ ["AI & Automation Solutions","Design practical AI-assisted workflows, automate repetitive tasks, connect tools, and explore ways to improve productivity."],
+ ["Website Design & Development","Build modern responsive websites and web applications, including landing pages, business sites, contact forms, and deployment or hosting setup."],
+ ["AI Chatbots & Intelligent Agents","Build custom AI chatbots and intelligent agents that answer questions, use your business information, assist visitors, and support workflows. Explore website chat, knowledge-based assistants, and automation integrations."]],
+ ar:[
+ ["الدعم التقني وحل المشكلات","تشخيص وحل مشكلات الكمبيوتر والأجهزة والبرامج والطابعات والاتصال. احصل على شرح واضح وخطوات عملية وتوصيات للحل."],
+ ["إعداد الكمبيوتر والأجهزة","إعداد الكمبيوتر والأجهزة وتهيئتها، وتثبيت البرامج، وإجراء التحديثات، ومساعدتك على تجهيز التقنية للاستخدام."],
+ ["Microsoft 365 والإنتاجية","تحسين استخدام Outlook وTeams وMicrosoft 365 وأدوات التعاون وسير العمل اليومي، مع المساعدة في الإعداد وتبسيط العمل."],
+ ["الشبكات والاتصال","حل مشكلات Wi-Fi وVPN والوصول إلى الشبكة والطابعات والأجهزة المتصلة للمساعدة في استعادة اتصال موثوق."],
+ ["استشارات وتخطيط تقنية المعلومات","احصل على توصيات تقنية وتخطيط للمعدات وإرشادات للتنفيذ وأفكار لتحسين الإجراءات وفق احتياجاتك."],
+ ["حلول الذكاء الاصطناعي والأتمتة","تصميم سير عمل مدعوم بالذكاء الاصطناعي، وأتمتة المهام المتكررة، وربط الأدوات، واستكشاف طرق لتحسين الإنتاجية."],
+ ["تصميم وتطوير المواقع","إنشاء مواقع وتطبيقات ويب حديثة ومتجاوبة، بما في ذلك الصفحات التعريفية ومواقع الأعمال ونماذج التواصل وإعداد النشر والاستضافة."],
+ ["روبوتات المحادثة ووكلاء الذكاء الاصطناعي","إنشاء روبوتات محادثة ووكلاء ذكيين مخصصين للإجابة عن الأسئلة، واستخدام معلومات عملك، ومساعدة زوار الموقع، ودعم سير العمل. يمكن تصميم مساعد للموقع أو مساعد يعتمد على قاعدة معرفة أو تكاملات للأتمتة."]]
+ };
+ const modal=document.getElementById("serviceModal"), icon=document.getElementById("serviceModalIcon"), title=document.getElementById("serviceModalTitle"), desc=document.getElementById("serviceModalDescription"), close=document.getElementById("serviceModalClose"), contact=document.getElementById("serviceModalContact");
+ function lang(){return document.body.dir==="rtl"?"ar":"en";}
+ document.querySelectorAll(".service-click").forEach(card=>card.addEventListener("click",()=>{
+   const idx=Number(card.dataset.service)-1, l=lang(); icon.textContent=icons[idx]; title.textContent=details[l][idx][0]; desc.textContent=details[l][idx][1]; contact.textContent=l==="ar"?"ناقش هذه الخدمة":"Discuss this service"; modal.classList.add("open");
+ }));
+ function shut(){modal.classList.remove("open");} close.addEventListener("click",shut); modal.addEventListener("click",e=>{if(e.target===modal)shut();}); document.addEventListener("keydown",e=>{if(e.key==="Escape")shut();}); contact.addEventListener("click",shut);
+ document.querySelectorAll(".service-more").forEach(el=>{el.textContent=lang()==="ar"?"اعرف المزيد ←":"Learn more ↗";});
+})();
+</script>
 </body>
 </html>
