@@ -193,7 +193,7 @@
   <header class="topbar">
     <div class="container">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="#home" aria-label="Mohammed Mustafa IT Solutions home">
+        <a class="brand" href="#home" aria-label="NexITech IT Solutions home">
           <span class="brand-name NexITech-wordmark"><span class="brand-nex">Nex</span><span class="brand-it">IT</span><span class="brand-ech">ech</span><small>TECHNOLOGY · INNOVATION · SOLUTIONS</small></span>
         </a>
         <div class="navlinks" id="navlinks">
@@ -349,7 +349,7 @@
     function setLanguage(lang){
       currentLang=lang; const arabic=lang==='ar'; document.documentElement.lang=arabic?'ar':'en'; document.body.dir=arabic?'rtl':'ltr';
       ids.forEach(id=>{const el=document.getElementById(id); if(el && translations.ar[id]!==undefined) el.innerHTML=arabic?translations.ar[id]:englishOriginals[id];});
-      const copyrightEl=document.getElementById('copyright'); if(copyrightEl){ const year=new Date().getFullYear(); if(arabic){copyrightEl.innerHTML='© <span dir="ltr" style="unicode-bidi:isolate">'+year+'</span> NexITech. جميع الحقوق محفوظة.';} else {copyrightEl.innerHTML='© <span dir="ltr" style="unicode-bidi:isolate">'+year+'</span> Mohammed Mustafa. All rights reserved.';} }
+      const copyrightEl=document.getElementById('copyright'); if(copyrightEl){ const year=new Date().getFullYear(); if(arabic){copyrightEl.innerHTML='© <span dir="ltr" style="unicode-bidi:isolate">'+year+'</span> NexITech. جميع الحقوق محفوظة.';} else {copyrightEl.innerHTML='© <span dir="ltr" style="unicode-bidi:isolate">'+year+'</span> NexITech. All rights reserved.';} }
       const metaTexts={ar:{title:'NexITech | حلول الذكاء الاصطناعي وتقنية المعلومات والاستشارات التقنية',desc:'حلول الذكاء الاصطناعي، والأتمتة، والدعم التقني، والاستشارات، وتطوير المواقع.'},en:{title:'NexITech | IT, AI Solutions & Technology Consulting',desc:'IT support, AI solutions, intelligent agents, workflow automation, technology consulting, and website development.'}};
       document.title=metaTexts[lang].title; const desc=document.querySelector('meta[name="description"]'); if(desc) desc.content=metaTexts[lang].desc;
       langToggle.textContent=arabic?'English':'العربية'; langToggle.setAttribute('aria-label',arabic?'Switch to English':'Switch to Arabic');
