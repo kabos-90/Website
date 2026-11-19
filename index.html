@@ -152,6 +152,12 @@
 
 
     body[dir="rtl"] #phone{direction:rtl;text-align:right}
+
+    /* Fix Arabic services grid: keep cards inside the viewport and align card content RTL */
+    body[dir="rtl"] .services-grid{direction:rtl;min-width:0;width:100%;}
+    body[dir="rtl"] .service-click{direction:rtl;text-align:right;min-width:0;width:100%;overflow-wrap:anywhere}
+    body[dir="rtl"] .service-click .service-icon{margin-left:auto;margin-right:0}\n    body[dir="rtl"] .services-grid>*{min-width:0;}
+    body[dir="rtl"] .service-more{direction:rtl}
 </style>
 
   <link rel="canonical" href="https://nexitech.us/">
@@ -191,7 +197,7 @@
           <span class="brand-name NexITech-wordmark"><span class="brand-nex">Nex</span><span class="brand-it">IT</span><span class="brand-ech">ech</span><small>TECHNOLOGY · INNOVATION · SOLUTIONS</small></span>
         </a>
         <div class="navlinks" id="navlinks">
-          <a href="#services" id="navServices">Services</a><a href="#about" id="navAbout">About</a><a href="#approach" id="navApproach">How We Work</a><a href="#contact" id="navContact">Contact</a>
+          <a href="#services" id="navServices">Services</a><a href="#about" id="navAbout">About</a><a href="#approach" id="navApproach">How I Work</a><a href="#contact" id="navContact">Contact</a>
         </div>
         <a class="nav-cta" href="#contact" id="navCta">Let's talk <span>↗</span></a>
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">العربية</button>
@@ -264,7 +270,7 @@
     <section class="process" id="approach">
       <div class="container">
         <div class="section-head">
-          <div class="kicker" id="processKicker">How We work</div>
+          <div class="kicker" id="processKicker">How I work</div>
           <h2 id="processTitle">A straightforward path to a better solution.</h2>
           <p class="section-intro" id="processIntro">A clear, collaborative approach keeps the focus on your needs and the outcome you're looking for.</p>
         </div>
@@ -329,7 +335,7 @@
         navServices:"الخدمات", navAbout:"نبذة عنا", navApproach:"كيف أعمل", navContact:"تواصل", navCta:"لنتحدث",
         heroEyebrow:"التكنولوجيا · الابتكار · استشارات الحلول", heroTitle:"التكنولوجيا بطريقة أذكى.<br><span>حلول تساعدك على التقدم.</span>", heroCopy:"دعم تقني واستشارات تكنولوجية عملية لمساعدة الأفراد والمؤسسات على حل المشكلات، واتخاذ قرارات تقنية أفضل، والعمل بثقة.", heroProject:"ناقش مشروعك", heroServices:"استكشف الخدمات", heroMeta:["تواصل واضح","توصيات عملية","دعم يركز على الأشخاص"], visualTop:"التكنولوجيا بطريقة أذكى", visualTopSmall:"الدعم · الاستراتيجية · الحلول", visualBottom:"التركيز على ما يهم", visualBottomSmall:"إرشادات تقنية موثوقة ومدروسة",
         servicesKicker:"كيف يمكنني مساعدتك", servicesTitle:"دعم تقني لاحتياجات الحياة العملية.", servicesIntro:"من المشكلات التقنية اليومية إلى التخطيط التقني، استكشف خدمات عملية مصممة وفق أهدافك.",
-        service1Title:"الدعم التقني وحل المشكلات", service1Desc:"تشخيص مشكلات الكمبيوتر والأجهزة والبرامج والطابعات والاتصال، مع خطوات واضحة للحل.", service2Title:"إعداد الكمبيوتر والأجهزة", service2Desc:"إعداد أجهزة PC وMac، والتهيئة، وتثبيت البرامج، والتحديثات، وتهيئة المستخدمين للتكنولوجيا.", service3Title:"Microsoft 365 والإنتاجية", service3Desc:"مساعدة في Outlook وTeams وMicrosoft 365 وأدوات التعاون وسير العمل اليومي.", service4Title:"الشبكات والاتصال", service4Desc:"حل مشكلات Wi-Fi وVPN والطابعات والأجهزة المتصلة بطريقة عملية.", service5Title:"استشارات وتخطيط تقنية المعلومات", service5Desc:"توصيات تقنية، وتخطيط المعدات، ودعم التنفيذ، وتحسين الإجراءات.", service6Title:"حلول الذكاء الاصطناعي والأتمتة", service6Desc:"استخدام أدوات الذكاء الاصطناعي والأتمتة لتبسيط المهام المتكررة وتحسين الإنتاجية.", service7Title:"تصميم وتطوير المواقع", service7Desc:"مواقع وتطبيقات ويب حديثة ومتجاوبة للأفراد والشركات، بما في ذلك صفحات التعريف ونماذج التواصل وإعداد الاستضافة.",
+        service1Title:"الدعم التقني وحل المشكلات", service1Desc:"تشخيص مشكلات الكمبيوتر والأجهزة والبرامج والطابعات والاتصال، مع خطوات واضحة للحل.", service2Title:"إعداد الكمبيوتر والأجهزة", service2Desc:"إعداد أجهزة PC وMac، والتهيئة، وتثبيت البرامج، والتحديثات، وتهيئة المستخدمين للتكنولوجيا.", service3Title:"Microsoft 365 والإنتاجية", service3Desc:"مساعدة في Outlook وTeams وMicrosoft 365 وأدوات التعاون وسير العمل اليومي.", service4Title:"الشبكات والاتصال", service4Desc:"حل مشكلات Wi-Fi وVPN والطابعات والأجهزة المتصلة بطريقة عملية.", service5Title:"استشارات وتخطيط تقنية المعلومات", service5Desc:"توصيات تقنية، وتخطيط المعدات، ودعم التنفيذ، وتحسين الإجراءات.", service6Title:"حلول الذكاء الاصطناعي والأتمتة", service6Desc:"استخدام أدوات الذكاء الاصطناعي والأتمتة لتبسيط المهام المتكررة وتحسين الإنتاجية.", service7Title:"تصميم وتطوير المواقع", service8Title:"روبوتات المحادثة ووكلاء الذكاء الاصطناعي", service8Desc:"إنشاء روبوتات محادثة ووكلاء ذكاء اصطناعي مخصصين للمواقع، وأسئلة العملاء، وقواعد المعرفة، وسير عمل الأعمال.", service7Desc:"مواقع وتطبيقات ويب حديثة ومتجاوبة للأفراد والشركات، بما في ذلك صفحات التعريف ونماذج التواصل وإعداد الاستضافة.",
         aboutMini:"نهج عملي للتكنولوجيا", aboutStatement:"يجب أن تجعل التكنولوجيا العمل أسهل — لا أكثر تعقيدًا.", aboutBrandLine:"NexITech · التكنولوجيا · الابتكار · استشارات الحلول", aboutKicker:"عن NexITech", aboutTitle:"فهم تقني. حلول بعقلية الأعمال.", aboutParagraph1:"تأسست NexITech على يد محمد مصطفى، متخصص في تقنية المعلومات حاصل على بكالوريوس علوم الحاسوب، ويتابع دراسة الماجستير في تحليلات الأعمال والذكاء الاصطناعي التطبيقي. لديه خبرة في دعم المستخدمين والبيئات التقنية والأجهزة والبرامج ومشاريع تقنية المعلومات.", aboutParagraph2:"أركز أولاً على فهم المشكلة، وشرح الخيارات بلغة واضحة، وتقديم حلول تناسب الأشخاص وطبيعة العمل.", check1:"دعم يركز على المستخدم", check2:"تواصل واضح", check3:"إرشادات تقنية عملية", check4:"التخطيط التقني",
         processKicker:"كيف أعمل", processTitle:"خطوات واضحة نحو حل أفضل.", processIntro:"نهج واضح وتعاوني يركز على احتياجاتك والنتيجة التي تسعى إليها.", step1Label:"01 / فهم", step1Title:"ابدأ بفهم الحاجة", step1Desc:"ناقش التحدي وأهدافك والتكنولوجيا المستخدمة.", step2Label:"02 / توصية", step2Title:"حدد الخيارات العملية", step2Desc:"راجع الحلول الممكنة واشرح مزاياها وعيوبها بوضوح.", step3Label:"03 / تقدم", step3Title:"ابدأ التنفيذ", step3Desc:"اتفق على الخطوات التالية واعمل نحو حل يناسب وضعك.",
         contactKicker:"تواصل معي", contactTitle:"لنجعل التكنولوجيا تعمل بشكل أفضل.", contactIntro:"هل لديك مشكلة تقنية أو فكرة مشروع أو سؤال حول إعداداتك التقنية؟ أرسل رسالة أو تواصل معي مباشرة.", emailUs:"راسلني", callUs:"اتصل بي", delphiButton:"تحدث معي عبر الذكاء الاصطناعي", aiButton:"تحدث مع مساعد الذكاء الاصطناعي", businessHours:"<strong>ساعات العمل</strong> · الاثنين–الجمعة، 9 صباحًا–6 مساءً بتوقيت شرق الولايات المتحدة · مغلق في عطلة نهاية الأسبوع", locationInfo:"<strong>الموقع</strong> · الولايات المتحدة · خدمات عن بُعد في جميع أنحاء البلاد", formTitle:"أرسل رسالة", formIntro:"أرسل رسالتك مباشرة إلى NexITech. لا تحتاج إلى فتح تطبيق البريد الإلكتروني.", nameLabel:"اسمك", emailLabel:"بريدك الإلكتروني", phoneLabel:"رقم هاتفك (اختياري)", messageLabel:"كيف يمكنني مساعدتك؟", namePlaceholder:"أدخل اسمك", emailPlaceholder:"you@example.com", phonePlaceholder:"أدخل رقم هاتفك", messagePlaceholder:"أخبرني قليلًا بما تحتاج إليه...", sendButton:"إرسال الرسالة", formNote:"ستُرسل رسالتك إلى NexITech. يرجى عدم تضمين كلمات المرور أو المعلومات الحساسة.", footerBrand:"NexITech · حلول تقنية المعلومات", copyright:"© <span dir=\"ltr\" style=\"unicode-bidi:isolate\">2026</span> Mohammed Mustafa. جميع الحقوق محفوظة.", backTop:"العودة إلى الأعلى ↑"
@@ -347,6 +353,7 @@
       const metaTexts={ar:{title:'NexITech | حلول الذكاء الاصطناعي وتقنية المعلومات والاستشارات التقنية',desc:'حلول الذكاء الاصطناعي، والأتمتة، والدعم التقني، والاستشارات، وتطوير المواقع.'},en:{title:'NexITech | IT, AI Solutions & Technology Consulting',desc:'IT support, AI solutions, intelligent agents, workflow automation, technology consulting, and website development.'}};
       document.title=metaTexts[lang].title; const desc=document.querySelector('meta[name="description"]'); if(desc) desc.content=metaTexts[lang].desc;
       langToggle.textContent=arabic?'English':'العربية'; langToggle.setAttribute('aria-label',arabic?'Switch to English':'Switch to Arabic');
+      document.querySelectorAll('.service-more').forEach(el=>{el.textContent=arabic?'اعرف المزيد ←':'Learn more ↗';});
       // Translate form field labels and placeholders.
       const fields={name:['Your name','اسمك','Enter your name','أدخل اسمك'],email:['Your email','بريدك الإلكتروني','you@example.com','you@example.com'],phone:['Your phone number (optional)','رقم هاتفك (اختياري)','Enter your phone number','أدخل رقم هاتفك'],message:['How can I help?','كيف يمكنني مساعدتك؟','Tell me a little about what you need...','أخبرني قليلًا بما تحتاج إليه...']};
       Object.entries(fields).forEach(([field,vals])=>{const label=document.querySelector('label[for="'+field+'"]');const input=document.getElementById(field);if(label)label.textContent=arabic?vals[1]:vals[0];if(input)input.placeholder=arabic?vals[3]:vals[2];});
