@@ -105,6 +105,23 @@
     footer{background:#05101e;color:#91a3ba;padding:23px 0;font-size:11px}
     .footer-row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
     .footer-brand{color:#eaf2ff;font-weight:800}
+
+    .lang-toggle{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#f4f8ff;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+    .lang-toggle:hover{background:rgba(255,255,255,.14)}
+    body[dir="rtl"]{font-family:Tahoma,Arial,sans-serif}
+    body[dir="rtl"] .nav,body[dir="rtl"] .navlinks,body[dir="rtl"] .hero-actions,body[dir="rtl"] .hero-meta,body[dir="rtl"] .contact-details,body[dir="rtl"] .delphi-action,body[dir="rtl"] .footer-row{direction:rtl}
+    body[dir="rtl"] .hero-grid,body[dir="rtl"] .about-grid,body[dir="rtl"] .contact-grid{direction:rtl}
+    body[dir="rtl"] .hero:after{mask-image:linear-gradient(270deg,transparent,black)}
+    body[dir="rtl"] h1,body[dir="rtl"] h2,body[dir="rtl"] .section-head,body[dir="rtl"] .about-copy,body[dir="rtl"] .contact-grid>div:first-child,body[dir="rtl"] .contact-card{text-align:right}
+    body[dir="rtl"] .hero-meta span:before{margin-right:0;margin-left:8px}
+    body[dir="rtl"] .check:before{margin-right:0;margin-left:8px}
+    body[dir="rtl"] .visual-label{direction:rtl}
+    body[dir="rtl"] .label-top{right:auto;left:-2px}
+    body[dir="rtl"] .label-bottom{left:auto;right:-5px}
+    body[dir="rtl"] .field label{text-align:right}
+    body[dir="rtl"] .navlinks{align-items:flex-end}
+    body[dir="rtl"] .navlinks.open{align-items:flex-end}
+    @media(max-width:620px){body[dir="rtl"] .navlinks{left:0;right:0;align-items:flex-end}}
     @media(max-width:850px){
       .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
       .tech-visual{min-height:330px}.services-grid{grid-template-columns:repeat(2,1fr)}
@@ -158,9 +175,10 @@
           <span class="brand-name NexITech-wordmark"><span class="brand-nex">Nex</span><span class="brand-it">IT</span><span class="brand-ech">ech</span><small>TECHNOLOGY · INNOVATION · SOLUTIONS</small></span>
         </a>
         <div class="navlinks" id="navlinks">
-          <a href="#services">Services</a><a href="#about">About</a><a href="#approach">How We Work</a><a href="#contact">Contact</a>
+          <a href="#services" id="navServices">Services</a><a href="#about" id="navAbout">About</a><a href="#approach" id="navApproach">How I Work</a><a href="#contact" id="navContact">Contact</a>
         </div>
-        <a class="nav-cta" href="#contact">Let's talk <span>↗</span></a>
+        <a class="nav-cta" href="#contact" id="navCta">Let's talk <span>↗</span></a>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">العربية</button>
         <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
       </nav>
     </div>
@@ -170,20 +188,20 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow"><span class="pulse"></span> TECHNOLOGY · INNOVATION · SOLUTIONS CONSULTING</div>
-          <h1>Technology made smarter.<br><span>Solutions that move you forward.</span></h1>
-          <p class="hero-copy">Practical IT support and technology consulting to help people and organizations solve problems, make smarter technology decisions, and work with confidence.</p>
+          <div class="eyebrow" id="heroEyebrow"><span class="pulse"></span> TECHNOLOGY · INNOVATION · SOLUTIONS CONSULTING</div>
+          <h1 id="heroTitle">Technology made smarter.<br><span>Solutions that move you forward.</span></h1>
+          <p class="hero-copy" id="heroCopy">Practical IT support and technology consulting to help people and organizations solve problems, make smarter technology decisions, and work with confidence.</p>
           <div class="hero-actions">
-            <a class="btn" href="#contact">Discuss a project <span>↗</span></a>
-            <a class="btn btn-outline" href="#services">Explore services</a>
+            <a class="btn" href="#contact" id="heroProject">Discuss a project <span>↗</span></a>
+            <a class="btn btn-outline" href="#services" id="heroServices">Explore services</a>
           </div>
-          <div class="hero-meta"><span>Clear communication</span><span>Practical recommendations</span><span>People-first support</span></div>
+          <div class="hero-meta" id="heroMeta"><span>Clear communication</span><span>Practical recommendations</span><span>People-first support</span></div>
         </div>
         <div class="tech-visual" aria-hidden="true">
           <div class="visual-ring"></div>
           <div class="visual-core"><div class="monogram" aria-hidden="true"></div></div>
-          <div class="visual-label label-top"><span class="float-icon">⌘</span>Technology made smarter<small>Support · Strategy · Solutions</small></div>
-          <div class="visual-label label-bottom"><span class="float-icon">✓</span>Focused on what matters<small>Reliable, thoughtful IT guidance</small></div>
+          <div class="visual-label label-top"><span class="float-icon">⌘</span><span id="visualTop">Technology made smarter</span><small id="visualTopSmall">Support · Strategy · Solutions</small></div>
+          <div class="visual-label label-bottom"><span class="float-icon">✓</span><span id="visualBottom">Focused on what matters</span><small id="visualBottomSmall">Reliable, thoughtful IT guidance</small></div>
         </div>
       </div>
     </section>
@@ -191,18 +209,18 @@
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <div class="kicker">What WE can help with</div>
-          <h2>Technology support for real-world needs.</h2>
-          <p class="section-intro">From everyday technical issues to broader technology planning, explore practical services designed around your goals.</p>
+          <div class="kicker" id="servicesKicker">What I can help with</div>
+          <h2 id="servicesTitle">Technology support for real-world needs.</h2>
+          <p class="section-intro" id="servicesIntro">From everyday technical issues to broader technology planning, explore practical services designed around your goals.</p>
         </div>
         <div class="services-grid">
-          <article class="service"><div class="service-icon">⌘</div><h3>IT Support &amp; Troubleshooting</h3><p>Help diagnosing computer, device, software, printer, and connectivity issues with clear next steps.</p></article>
-          <article class="service"><div class="service-icon">▣</div><h3>Computer &amp; Device Setup</h3><p>PC and Mac setup, configuration, software installation, updates, and technology onboarding.</p></article>
-          <article class="service"><div class="service-icon">☁</div><h3>Microsoft 365 &amp; Productivity</h3><p>Guidance with Outlook, Teams, Microsoft 365, collaboration tools, and everyday workflows.</p></article>
-          <article class="service"><div class="service-icon">⌁</div><h3>Network &amp; Connectivity</h3><p>Practical troubleshooting for Wi-Fi, VPN access, printers, and connected devices.</p></article>
-          <article class="service"><div class="service-icon">◇</div><h3>IT Consulting &amp; Planning</h3><p>Technology recommendations, equipment planning, implementation support, and process improvement.</p></article>
-          <article class="service"><div class="service-icon">✳</div><h3>AI &amp; Automation Solutions</h3><p>Explore useful AI tools and workflow automation to simplify repetitive tasks and improve productivity.</p></article>
-          <article class="service"><div class="service-icon">▤</div><h3>Website Design &amp; Development</h3><p>Modern, responsive websites and web applications for businesses and individuals, including landing pages, contact forms, and hosting setup.</p></article>
+          <article class="service"><div class="service-icon">⌘</div><h3 id="service1Title">IT Support &amp; Troubleshooting</h3><p id="service1Desc">Help diagnosing computer, device, software, printer, and connectivity issues with clear next steps.</p></article>
+          <article class="service"><div class="service-icon">▣</div><h3 id="service2Title">Computer &amp; Device Setup</h3><p id="service2Desc">PC and Mac setup, configuration, software installation, updates, and technology onboarding.</p></article>
+          <article class="service"><div class="service-icon">☁</div><h3 id="service3Title">Microsoft 365 &amp; Productivity</h3><p id="service3Desc">Guidance with Outlook, Teams, Microsoft 365, collaboration tools, and everyday workflows.</p></article>
+          <article class="service"><div class="service-icon">⌁</div><h3 id="service4Title">Network &amp; Connectivity</h3><p id="service4Desc">Practical troubleshooting for Wi-Fi, VPN access, printers, and connected devices.</p></article>
+          <article class="service"><div class="service-icon">◇</div><h3 id="service5Title">IT Consulting &amp; Planning</h3><p id="service5Desc">Technology recommendations, equipment planning, implementation support, and process improvement.</p></article>
+          <article class="service"><div class="service-icon">✳</div><h3 id="service6Title">AI &amp; Automation Solutions</h3><p id="service6Desc">Explore useful AI tools and workflow automation to simplify repetitive tasks and improve productivity.</p></article>
+          <article class="service"><div class="service-icon">▤</div><h3 id="service7Title">Website Design &amp; Development</h3><p id="service7Desc">Modern, responsive websites and web applications for businesses and individuals, including landing pages, contact forms, and hosting setup.</p></article>
         </div>
       </div>
     </section>
@@ -210,18 +228,18 @@
     <section class="band" id="about">
       <div class="container about-grid">
         <div class="about-card">
-          <span class="mini">A practical approach to technology</span>
-          <strong>Good technology should make work easier — not more complicated.</strong>
-          <small>NexITech · TECHNOLOGY · INNOVATION · SOLUTIONS CONSULTING</small>
+          <span class="mini" id="aboutMini">A practical approach to technology</span>
+          <strong id="aboutStatement">Good technology should make work easier — not more complicated.</strong>
+          <small id="aboutBrandLine">NexITech · TECHNOLOGY · INNOVATION · SOLUTIONS CONSULTING</small>
         </div>
         <div class="about-copy">
-          <div class="kicker">About NexITech</div>
-          <h2>Technical understanding. Business-minded solutions.</h2>
+          <div class="kicker" id="aboutKicker">About NexITech</div>
+          <h2 id="aboutTitle">Technical understanding. Business-minded solutions.</h2>
           <p>NexITech was founded by Mohammed Mustafa, an IT professional with a Bachelor’s degree in Computer Science and pursuing a Master’s degree in Business Analytics & Applied AI. He brings experience supporting users, technology environments, devices, software, and IT projects.</p>
-          <p>We focus on understanding the problem first, explaining options in plain language, and recommending solutions that fit the people and work involved.</p>
-          <div class="check-list">
-            <div class="check">User-focused support</div><div class="check">Clear communication</div>
-            <div class="check">Practical IT guidance</div><div class="check">Technology planning</div>
+          <p id="aboutParagraph2">I focus on understanding the problem first, explaining options in plain language, and recommending solutions that fit the people and work involved.</p>
+          <div class="check-list" id="aboutChecks">
+            <div class="check" id="check1">User-focused support</div><div class="check" id="check2">Clear communication</div>
+            <div class="check" id="check3">Practical IT guidance</div><div class="check" id="check4">Technology planning</div>
           </div>
         </div>
       </div>
@@ -230,14 +248,14 @@
     <section class="process" id="approach">
       <div class="container">
         <div class="section-head">
-          <div class="kicker">How We work</div>
-          <h2>A straightforward path to a better solution.</h2>
-          <p class="section-intro">A clear, collaborative approach keeps the focus on your needs and the outcome you're looking for.</p>
+          <div class="kicker" id="processKicker">How I work</div>
+          <h2 id="processTitle">A straightforward path to a better solution.</h2>
+          <p class="section-intro" id="processIntro">A clear, collaborative approach keeps the focus on your needs and the outcome you're looking for.</p>
         </div>
         <div class="process-grid">
-          <article class="step"><div class="step-no">01 / UNDERSTAND</div><h3>Start with the need</h3><p>Discuss the challenge, your goals, and the technology involved.</p></article>
-          <article class="step"><div class="step-no">02 / RECOMMEND</div><h3>Identify practical options</h3><p>Review possible solutions and explain the trade-offs in clear language.</p></article>
-          <article class="step"><div class="step-no">03 / MOVE FORWARD</div><h3>Make progress</h3><p>Agree on next steps and work toward a solution that fits your situation.</p></article>
+          <article class="step"><div class="step-no"><span id="step1Label">01 / UNDERSTAND</span></div><h3 id="step1Title">Start with the need</h3><p id="step1Desc">Discuss the challenge, your goals, and the technology involved.</p></article>
+          <article class="step"><div class="step-no"><span id="step2Label">02 / RECOMMEND</span></div><h3 id="step2Title">Identify practical options</h3><p id="step2Desc">Review possible solutions and explain the trade-offs in clear language.</p></article>
+          <article class="step"><div class="step-no"><span id="step3Label">03 / MOVE FORWARD</span></div><h3 id="step3Title">Make progress</h3><p id="step3Desc">Agree on next steps and work toward a solution that fits your situation.</p></article>
         </div>
       </div>
     </section>
@@ -245,35 +263,35 @@
     <section class="contact" id="contact">
       <div class="container contact-grid">
         <div>
-          <div class="kicker" style="color:#83b5ff">Get in touch</div>
-          <h2>Let's make technology work better.</h2>
-          <p class="section-intro">Have a technical issue, a project idea, or a question about your technology setup? Send a message or contact me directly.</p>
+          <div class="kicker" id="contactKicker" style="color:#83b5ff">Get in touch</div>
+          <h2 id="contactTitle">Let's make technology work better.</h2>
+          <p class="section-intro" id="contactIntro">Have a technical issue, a project idea, or a question about your technology setup? Send a message or contact me directly.</p>
           <div class="contact-details">
-            <a class="contact-link" href="mailto:mmustaf2@ur.rochester.edu"><span class="symbol">✉</span><span>Email Us</span></a>
-            <a class="contact-link" href="tel:+15853589591"><span class="symbol">☎</span><span>Call Us</span></a>
+            <a class="contact-link" href="mailto:mmustaf2@ur.rochester.edu"><span class="symbol">✉</span><span id="emailUs">Email Us</span></a>
+            <a class="contact-link" href="tel:+15853589591"><span class="symbol">☎</span><span id="callUs">Call Us</span></a>
           </div>
           <div class="delphi-action">
             <a class="btn" href="https://www.delphi.co/mustafa-mohammed" target="_blank" rel="noopener noreferrer">
-              Talk to Me via AI <span>↗</span>
+              <span id="delphiButton">Talk to Me via AI</span> <span>↗</span>
             </a>
             <a class="btn" href="https://ai.nexitech.us" target="_blank" rel="noopener noreferrer">
-              Chat with My AI Assistant <span>↗</span>
+              <span id="aiButton">Chat with My AI Assistant</span> <span>↗</span>
             </a>
           </div>
           <div class="contact-meta">
-            <p><strong>Business Hours</strong> · Monday–Friday, 9:00 AM–6:00 PM ET · Closed weekends</p>
-            <p><strong>Location</strong> · Based in the United States · Available remotely nationwide</p>
+            <p id="businessHours"><strong>Business Hours</strong> · Monday–Friday, 9:00 AM–6:00 PM ET · Closed weekends</p>
+            <p id="locationInfo"><strong>Location</strong> · Based in the United States · Available remotely nationwide</p>
           </div>
         </div>
         <form class="contact-card" id="contactForm">
-          <h3>Send a message</h3>
-          <p>Send your message directly to NexITech. You do not need to open your email application.</p>
-          <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="Enter your name" required></div>
-          <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
-          <div class="field"><label for="phone">Your phone number (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Enter your phone number"></div>
-          <div class="field"><label for="message">How can I help?</label><textarea id="message" name="message" placeholder="Tell me a little about what you need..." required></textarea></div>
-          <button class="btn" type="submit">Send message <span>↗</span></button>
-          <p class="form-note">Your message will be sent to NexITech. Please do not include passwords or sensitive information.</p>
+          <h3 id="formTitle">Send a message</h3>
+          <p id="formIntro">Send your message directly to NexITech. You do not need to open your email application.</p>
+          <div class="field"><label for="name" id="nameLabel">Your name</label><input id="name" name="name" autocomplete="name" placeholder="Enter your name" required></div>
+          <div class="field"><label for="email" id="emailLabel">Your email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="phone" id="phoneLabel">Your phone number (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Enter your phone number"></div>
+          <div class="field"><label for="message" id="messageLabel">How can I help?</label><textarea id="message" name="message" placeholder="Tell me a little about what you need..." required></textarea></div>
+          <button class="btn" type="submit" id="sendButton">Send message <span>↗</span></button>
+          <p class="form-note" id="formNote">Your message will be sent to NexITech. Please do not include passwords or sensitive information.</p>
           <div id="formStatus" class="form-status" role="status" aria-live="polite" hidden></div>
         </form>
       </div>
@@ -282,14 +300,42 @@
 
   <footer>
     <div class="container footer-row">
-      <span class="footer-brand">NexITech · IT Solution</span>
-      <span>© <span id="year"></span> Mohammed Mustafa. All rights reserved.</span>
-      <a href="#home">Back to top ↑</a>
+      <span class="footer-brand" id="footerBrand">NexITech · IT Solution</span>
+      <span id="copyright">© <span id="year"></span> Mohammed Mustafa. All rights reserved.</span>
+      <a href="#home" id="backTop">Back to top ↑</a>
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const translations = {
+      ar: {
+        navServices:"الخدمات", navAbout:"نبذة عنا", navApproach:"كيف أعمل", navContact:"تواصل", navCta:"لنتحدث",
+        heroEyebrow:"التكنولوجيا · الابتكار · استشارات الحلول", heroTitle:"التكنولوجيا بطريقة أذكى.<br><span>حلول تساعدك على التقدم.</span>", heroCopy:"دعم تقني واستشارات تكنولوجية عملية لمساعدة الأفراد والمؤسسات على حل المشكلات، واتخاذ قرارات تقنية أفضل، والعمل بثقة.", heroProject:"ناقش مشروعك", heroServices:"استكشف الخدمات", heroMeta:["تواصل واضح","توصيات عملية","دعم يركز على الأشخاص"], visualTop:"التكنولوجيا بطريقة أذكى", visualTopSmall:"الدعم · الاستراتيجية · الحلول", visualBottom:"التركيز على ما يهم", visualBottomSmall:"إرشادات تقنية موثوقة ومدروسة",
+        servicesKicker:"كيف يمكنني مساعدتك", servicesTitle:"دعم تقني لاحتياجات الحياة العملية.", servicesIntro:"من المشكلات التقنية اليومية إلى التخطيط التقني، استكشف خدمات عملية مصممة وفق أهدافك.",
+        service1Title:"الدعم التقني وحل المشكلات", service1Desc:"تشخيص مشكلات الكمبيوتر والأجهزة والبرامج والطابعات والاتصال، مع خطوات واضحة للحل.", service2Title:"إعداد الكمبيوتر والأجهزة", service2Desc:"إعداد أجهزة PC وMac، والتهيئة، وتثبيت البرامج، والتحديثات، وتهيئة المستخدمين للتكنولوجيا.", service3Title:"Microsoft 365 والإنتاجية", service3Desc:"مساعدة في Outlook وTeams وMicrosoft 365 وأدوات التعاون وسير العمل اليومي.", service4Title:"الشبكات والاتصال", service4Desc:"حل مشكلات Wi-Fi وVPN والطابعات والأجهزة المتصلة بطريقة عملية.", service5Title:"استشارات وتخطيط تقنية المعلومات", service5Desc:"توصيات تقنية، وتخطيط المعدات، ودعم التنفيذ، وتحسين الإجراءات.", service6Title:"حلول الذكاء الاصطناعي والأتمتة", service6Desc:"استخدام أدوات الذكاء الاصطناعي والأتمتة لتبسيط المهام المتكررة وتحسين الإنتاجية.", service7Title:"تصميم وتطوير المواقع", service7Desc:"مواقع وتطبيقات ويب حديثة ومتجاوبة للأفراد والشركات، بما في ذلك صفحات التعريف ونماذج التواصل وإعداد الاستضافة.",
+        aboutMini:"نهج عملي للتكنولوجيا", aboutStatement:"يجب أن تجعل التكنولوجيا العمل أسهل — لا أكثر تعقيدًا.", aboutBrandLine:"NexITech · التكنولوجيا · الابتكار · استشارات الحلول", aboutKicker:"عن NexITech", aboutTitle:"فهم تقني. حلول بعقلية الأعمال.", aboutParagraph1:"تأسست NexITech على يد محمد مصطفى، متخصص في تقنية المعلومات حاصل على بكالوريوس علوم الحاسوب، ويتابع دراسة الماجستير في تحليلات الأعمال والذكاء الاصطناعي التطبيقي. لديه خبرة في دعم المستخدمين والبيئات التقنية والأجهزة والبرامج ومشاريع تقنية المعلومات.", aboutParagraph2:"أركز أولاً على فهم المشكلة، وشرح الخيارات بلغة واضحة، وتقديم حلول تناسب الأشخاص وطبيعة العمل.", check1:"دعم يركز على المستخدم", check2:"تواصل واضح", check3:"إرشادات تقنية عملية", check4:"التخطيط التقني",
+        processKicker:"كيف أعمل", processTitle:"خطوات واضحة نحو حل أفضل.", processIntro:"نهج واضح وتعاوني يركز على احتياجاتك والنتيجة التي تسعى إليها.", step1Label:"01 / فهم", step1Title:"ابدأ بفهم الحاجة", step1Desc:"ناقش التحدي وأهدافك والتكنولوجيا المستخدمة.", step2Label:"02 / توصية", step2Title:"حدد الخيارات العملية", step2Desc:"راجع الحلول الممكنة واشرح مزاياها وعيوبها بوضوح.", step3Label:"03 / تقدم", step3Title:"ابدأ التنفيذ", step3Desc:"اتفق على الخطوات التالية واعمل نحو حل يناسب وضعك.",
+        contactKicker:"تواصل معي", contactTitle:"لنجعل التكنولوجيا تعمل بشكل أفضل.", contactIntro:"هل لديك مشكلة تقنية أو فكرة مشروع أو سؤال حول إعداداتك التقنية؟ أرسل رسالة أو تواصل معي مباشرة.", emailUs:"راسلني", callUs:"اتصل بي", delphiButton:"تحدث معي عبر الذكاء الاصطناعي", aiButton:"تحدث مع مساعد الذكاء الاصطناعي", businessHours:"<strong>ساعات العمل</strong> · الاثنين–الجمعة، 9 صباحًا–6 مساءً بتوقيت شرق الولايات المتحدة · مغلق في عطلة نهاية الأسبوع", locationInfo:"<strong>الموقع</strong> · الولايات المتحدة · خدمات عن بُعد في جميع أنحاء البلاد", formTitle:"أرسل رسالة", formIntro:"أرسل رسالتك مباشرة إلى NexITech. لا تحتاج إلى فتح تطبيق البريد الإلكتروني.", nameLabel:"اسمك", emailLabel:"بريدك الإلكتروني", phoneLabel:"رقم هاتفك (اختياري)", messageLabel:"كيف يمكنني مساعدتك؟", namePlaceholder:"أدخل اسمك", emailPlaceholder:"you@example.com", phonePlaceholder:"أدخل رقم هاتفك", messagePlaceholder:"أخبرني قليلًا بما تحتاج إليه...", sendButton:"إرسال الرسالة", formNote:"ستُرسل رسالتك إلى NexITech. يرجى عدم تضمين كلمات المرور أو المعلومات الحساسة.", footerBrand:"NexITech · حلول تقنية المعلومات", copyright:"© YEAR Mohammed Mustafa. جميع الحقوق محفوظة.", backTop:"العودة إلى الأعلى ↑"
+      }
+    };
+    const englishOriginals = {};
+    const ids = Object.keys(translations.ar);
+    ids.forEach(id => { const el=document.getElementById(id); if(el) englishOriginals[id]=el.innerHTML; });
+    const langToggle=document.getElementById('langToggle');
+    let currentLang='en';
+    function setLanguage(lang){
+      currentLang=lang; const arabic=lang==='ar'; document.documentElement.lang=arabic?'ar':'en'; document.body.dir=arabic?'rtl':'ltr';
+      ids.forEach(id=>{const el=document.getElementById(id); if(el && translations.ar[id]!==undefined) el.innerHTML=arabic?translations.ar[id]:englishOriginals[id];});
+      const metaTexts={ar:{title:'NexITech | حلول الذكاء الاصطناعي وتقنية المعلومات والاستشارات التقنية',desc:'حلول الذكاء الاصطناعي، والأتمتة، والدعم التقني، والاستشارات، وتطوير المواقع.'},en:{title:'NexITech | IT, AI Solutions & Technology Consulting',desc:'IT support, AI solutions, intelligent agents, workflow automation, technology consulting, and website development.'}};
+      document.title=metaTexts[lang].title; const desc=document.querySelector('meta[name="description"]'); if(desc) desc.content=metaTexts[lang].desc;
+      langToggle.textContent=arabic?'English':'العربية'; langToggle.setAttribute('aria-label',arabic?'Switch to English':'Switch to Arabic');
+      // Translate form field labels and placeholders.
+      const fields={name:['Your name','اسمك','Enter your name','أدخل اسمك'],email:['Your email','بريدك الإلكتروني','you@example.com','you@example.com'],phone:['Your phone number (optional)','رقم هاتفك (اختياري)','Enter your phone number','أدخل رقم هاتفك'],message:['How can I help?','كيف يمكنني مساعدتك؟','Tell me a little about what you need...','أخبرني قليلًا بما تحتاج إليه...']};
+      Object.entries(fields).forEach(([field,vals])=>{const label=document.querySelector('label[for="'+field+'"]');const input=document.getElementById(field);if(label)label.textContent=arabic?vals[1]:vals[0];if(input)input.placeholder=arabic?vals[3]:vals[2];});
+    }
+    langToggle.addEventListener('click',()=>setLanguage(currentLang==='en'?'ar':'en'));
+
     const menu = document.getElementById('menu');
     const links = document.getElementById('navlinks');
     menu.addEventListener('click', () => {
